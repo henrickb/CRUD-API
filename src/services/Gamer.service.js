@@ -1,4 +1,4 @@
-const Gamer = require('../models/Gamer')
+import Gamer from '../models/Gamer.js'
 
 const createService = (body) => Gamer.create(body)
 
@@ -16,7 +16,7 @@ const updateService = (
     {id, username, skill}
   )
 
-  module.exports = {
+export default {
     createService,
     findAllService,
     findByIdService,

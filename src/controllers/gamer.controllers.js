@@ -1,5 +1,5 @@
 
-const gamerService = require('../services/Gamer.service')
+import gamerService from '../services/Gamer.service.js'
 
 const create = async (req, res) =>{
     try{
@@ -68,7 +68,7 @@ const update = async (req, res) =>{
     }
 }
 
-module.exports = {
+export default {
     create,
     findAll,
     findById,

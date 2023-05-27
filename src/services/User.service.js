@@ -1,4 +1,4 @@
-const User = require('../models/User')
+import User from '../models/User.js'
 
 const createService = (body) => User.create(body) // this way a `return` is not necessary => desta maneira não é necessário um `return`
 
@@ -20,7 +20,8 @@ const updateService = (
     {id,name,username,email,password,avatar,background}
   )
 
-module.exports = {
+export default 
+{
     createService,
     findAllService,
     findByIdService,

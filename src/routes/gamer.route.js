@@ -1,9 +1,10 @@
-const route = require('express').Router()
-const gamerController = require('../controllers/gamer.controllers')
-const {validCodigoJogador, validGamer} = require('../middlewares/gamer.middlewares')
+import express from 'express'
+import gamerController from '../controllers/gamer.controllers.js'
+import {/*validCodigoJogador,*/ validGamer} from '../middlewares/gamer.middlewares.js'
+const route = express.Router()
 route.post('/', gamerController.create)
 route.get('/', gamerController.findAll)
 route.get('/:id',/* validCodigoJogador, */ validGamer, gamerController.findById)
 route.patch('/:id',/* validCodigoJogador, */ validGamer, gamerController.update)
 
-module.exports = route
+export default route

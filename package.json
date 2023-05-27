@@ -1,6 +1,7 @@
 {
   "name": "crud-api",
   "version": "1.0.0",
+  "type": "module",
   "description": "Create Crud for Server-Side programming material",
   "main": "index.js",
   "scripts": {

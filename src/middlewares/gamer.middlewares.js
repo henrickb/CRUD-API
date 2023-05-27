@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
-const gamerService = require('../services/Gamer.service')
+import mongoose from 'mongoose'
+import gamerService from '../services/Gamer.service.js'
 
-const validCodigoJogador = (req, res, next) =>{
+export const validCodigoJogador = (req, res, next) =>{
     /* try{
         const id = req.params.id
 
@@ -15,7 +15,7 @@ const validCodigoJogador = (req, res, next) =>{
     console.log(req.params.id)
 }
 
-const validGamer = async (req, res, next) =>{
+export const validGamer = async (req, res, next) =>{
     try{
         const id = req.params.id
 
@@ -31,9 +31,4 @@ const validGamer = async (req, res, next) =>{
     } catch(err){
         res.status(500).send({message: err.message})
     }
-}
-
-module.exports = {
-    validCodigoJogador,
-    validGamer
 }
