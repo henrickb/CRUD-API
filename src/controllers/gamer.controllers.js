@@ -68,9 +68,35 @@ const update = async (req, res) =>{
     }
 }
 
+const Delete = async (req, res) => {
+    try {
+       const gamer = req.params.id
+ 
+       const usuarioRemovido = await gamerService.findByIdAndRemove(gamer)
+       
+       console.log(usuarioRemovido)
+ 
+       if (usuarioRemovido) {
+          res.status(200).send({
+             message: 'Usuário deletado com sucesso',
+             usuario: usuarioRemovido
+          })
+       } else {
+          res.status(404).send({
+             message: 'Usuário não encontrado'
+          })
+       }
+    } catch (err) {
+       res.status(500).send({
+          message: err.message
+       })
+    }
+ }
+
 export default {
     create,
     findAll,
     findById,
     update,
+    Delete
 }

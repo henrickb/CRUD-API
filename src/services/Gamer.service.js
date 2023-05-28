@@ -6,6 +6,8 @@ const findAllService = () => Gamer.find()
 
 const findByIdService = (id) => Gamer.findById(id)
 
+const findByIdAndRemove = (id) => Gamer.findByIdAndRemove(id)
+
 const updateService = (
     id,
     username,
@@ -20,5 +22,6 @@ export default {
     createService,
     findAllService,
     findByIdService,
-    updateService
+    updateService,
+    findByIdAndRemove
   }
