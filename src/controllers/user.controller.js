@@ -1,3 +1,4 @@
+import UserService from '../services/User.service.js'
 import userService from '../services/User.service.js'
 
 const create = async (req, res) =>{
@@ -93,10 +94,36 @@ const update = async (req, res) =>{
    }
 }
 
+const Delete = async (req, res) => {
+   try {
+      const user = req.params.id
+
+      const usuarioRemovido = await UserService.findByIdAndRemove(user)
+      
+      console.log(usuarioRemovido)
+
+      if (usuarioRemovido) {
+         res.status(200).send({
+            message: 'Usuário deletado com sucesso',
+            usuario: usuarioRemovido
+         })
+      } else {
+         res.status(404).send({
+            message: 'Usuário não encontrado'
+         })
+      }
+   } catch (err) {
+      res.status(500).send({
+         message: err.message
+      })
+   }
+}
+
 
 export default { 
    create, 
    findAll, 
    findById,
    update,
+   Delete,
 }
